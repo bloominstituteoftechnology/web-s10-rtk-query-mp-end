@@ -41,7 +41,7 @@ export default function TodoForm() {
         resetForm()
       })
       .catch(err => {
-        console.log(err.message)
+        console.log(err)
       })
   }
 

@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-let id = 1
-export const getNextId = () => id++
 const initialState = {
   displayAllQuotes: true,
   highlightedQuote: null,
