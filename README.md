@@ -19,7 +19,7 @@
 
 ## ✨ Instructions
 
-Welcome to your Module Project! In this module you learned to use RTK Query to sync the state of the server with the state of the client, all handled with Redux.
+Welcome to your Module Project! In this module you learned to use RTK Query to sync the state of the server with the state of the client, all handled with Redux. Make sure to code alongside your Guided Project before attempting this challenge!
 
 In this project you will keep working on the Quotes app. Right now the application is not fetching information from a server, but using information that's hard-coded on the frontend instead: it's up to you to get this Redux app talking to a real API!
 
@@ -29,7 +29,7 @@ In this project you will keep working on the Quotes app. Right now the applicati
 
 - Watch the first minutes of the **Solution Video** if you need help getting situated.
 - There is no need to install any extra NPM dependencies.
-- You will make changes to five files - roughly in this order:
+- You will make changes to four files - roughly in this order:
   1. [quotesApi.js](./frontend/state/quotesApi.js)
   2. [store.js](./frontend/state/store.js)
   3. [Quotes.js](./frontend/components/Quotes.js)
@@ -37,18 +37,18 @@ In this project you will keep working on the Quotes app. Right now the applicati
 
 #### 👉 TASK 1 - Study the prototype
 
-The general functionality of the app will roughly match the one in [this prototype](https://bloominstituteoftechnology.github.io/W_S10_M1_Project/). Note that the prototype is not using RTK Query. Your finished app will use Redux and RTK Query to sync its state with the server via GET, POST, PUT and DELETE requests, and also display messages informing the user when the requests are in progress.
+The general functionality of the app will approximately match the one in [this prototype](https://bloominstituteoftechnology.github.io/W_S10_M1_Project/). Note that the prototype is not using RTK Query. Your finished app will use Redux and RTK Query to sync its state with the server via GET, POST, PUT and DELETE requests, and also display messages informing the user when the requests are in progress or when they have errored.
 
 #### 👉 TASK 2 - Study the API with Postman
 
 When your app is running it exposes and API on `http://localhost:9009/api/quotes` with the endpoints below. You should test them out in Postman to understand how they work. If you delete all the quotes, you can reset your server by running `npm run dev` again.
 
 1. GET `/quotes` **returns all quotes from the server**
-    - Expects no parameters nor request body
+    - Expects no parameters nor a request body
 
 2. POST `/quotes` **posts a new quote to the server**
     - Expects a `{ "quoteAuthor": "example author", "quoteText": "example text" }` as the request body
-    - Both properties must be longer than two characters or a 422 error message is returned
+    - Both properties must be longer than two characters or a 422 error response is returned
 
 3. DELETE `/quotes/:id` **removes a quote from the server**
     - Expects an actual quote ID at the end of the URL (instead of the ":id")
@@ -59,7 +59,7 @@ When your app is running it exposes and API on `http://localhost:9009/api/quotes
 
 #### 👉 TASK 3 - Wire RTK Query to the application
 
-1. Inside [quotesApi.js](./frontend/state/quotesApi.js) **create a `quotesApi`** containing 4 endpoints: a `getQuotes` query, and `toggleFake`, `createQuote`, `deleteQuote` mutations. Do not flesh these out completely yet. We just want to scaffold and export this API so we can plug it to Redux in the next step.
+1. Inside [quotesApi.js](./frontend/state/quotesApi.js) **create a `quotesApi`** containing 4 endpoints: a `getQuotes` query, and `createQuote`, `toggleFake` and `deleteQuote` mutations. Do not flesh these out completely yet. We just want to scaffold and export this API so we can plug it to Redux in the next step.
 
 2. Inside [store.js](./frontend/state/store.js) import the `quotesApi` and **connect** its reducer and its middleware to the existing Redux store.
 
@@ -77,13 +77,13 @@ When your app is running it exposes and API on `http://localhost:9009/api/quotes
 
 2. Inside [QuoteForm.js](./frontend/components/QuoteForm.js) use the `useCreateQuoteMutation` hook to POST a new quote to the server.
 
-3. Inside [quotesApi.js](./frontend/state/quotesApi.js) build the functionality needed to DELETE a quote and PUT a change to its `apocryphal` status.
+3. Inside [Quotes.js](./frontend/state/Quotes.js) build the functionality needed to DELETE a quote and PUT a change to its `apocryphal` status.
 
 ❗ Note that this task and the next ones can be done in parallel.
 
 #### 👉 TASK 6 - Create messages to show that requests are in progress
 
-Inside [Quotes.js](./frontend/components/Quotes.js) and [QuoteForm.js](./frontend/components/QuoteForm.js), render messages to the screen to inform the user that requests are in flight, and test them out by throttling the speed of the requests in the Network Tab in Chrome (by selecting `Fast 3G` from the dropdown). Design and style these messages however you like!
+Inside [Quotes.js](./frontend/components/Quotes.js) and [QuoteForm.js](./frontend/components/QuoteForm.js), render messages to the screen to inform the user that requests are in flight, and test them out by throttling the speed of the requests in the Network Tab in Chrome (by selecting `Fast 3G` or `Slow 3G` from the dropdown). Design and style these messages however you like!
 
 #### 👉 TASK 7 - Display validation problems
 
