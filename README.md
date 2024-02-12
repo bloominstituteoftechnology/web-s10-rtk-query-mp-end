@@ -41,7 +41,7 @@ The general functionality of the app will approximately match the one in [this p
 
 #### 👉 TASK 2 - Study the API with Postman
 
-When your app is running it exposes and API on `http://localhost:9009/api/quotes` with the endpoints below. You should test them out in Postman to understand how they work. If you delete all the quotes, you can reset your server by running `npm run dev` again.
+When your app is running it exposes an API on `http://localhost:9009/api/quotes` with the endpoints below. You should test them out in Postman to understand how they work. If you delete all the quotes, you can reset your server by running `npm run dev` again.
 
 1. GET `/quotes` **returns all quotes from the server**
     - Expects no parameters nor a request body
